@@ -1,11 +1,13 @@
 var utils = require('../lib/utils');
 
-var Finviz = function () { };
+var Finviz = function (ticker) {
+  this.ticker = ticker;
+  this.url = 'https://finviz.com/quote.ashx?t=' + ticker;
+  this.homePageUrl = 'https://finviz.com/';
+};
 
-Finviz.prototype.getArticles = function (ticker, callback) {
-  const url = 'https://finviz.com/quote.ashx?t=' + ticker;
-
-  utils.modem(url, function (err, response) {
+Finviz.prototype.getArticles = function (callback) {
+  utils.modem(this.url, function (err, response) {
     if (err)
       callback(err)
 
@@ -34,10 +36,8 @@ Finviz.prototype.getArticles = function (ticker, callback) {
   })
 }
 
-Finviz.prototype.getAnalists = function (ticker, callback) {
-  const url = 'https://finviz.com/quote.ashx?t=' + ticker;
-
-  utils.modem(url, function (err, response) {
+Finviz.prototype.getAnalists = function (callback) {
+  utils.modem(this.url, function (err, response) {
     if (err)
       callback(err)
 
@@ -69,10 +69,8 @@ Finviz.prototype.getAnalists = function (ticker, callback) {
   })
 }
 
-Finviz.prototype.getHomePageHeadLines = function (ticker, callback) {
-  const url = 'https://finviz.com/';
-
-  utils.modem(url, function (err, response) {
+Finviz.prototype.getHomePageHeadLines = function (callback) {
+  utils.modem(this.homePageUrl, function (err, response) {
     if (err)
       callback(err)
 
@@ -108,6 +106,5 @@ Finviz.prototype.getHomePageHeadLines = function (ticker, callback) {
 
   })
 }
-
 
 module.exports = Finviz;

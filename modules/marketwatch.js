@@ -1,11 +1,12 @@
 var utils = require('../lib/utils');
 
-var Marketwatch = function () { };
+var Marketwatch = function (ticker) {
+  this.ticker = ticker;
+  this.url = 'https://www.marketwatch.com/investing/stock/' + ticker;
+};
 
-Marketwatch.prototype.getArticles = function (ticker, callback) {
-  const url = 'https://www.marketwatch.com/investing/stock/' + ticker;
-
-  utils.modem(url, function (err, response) {
+Marketwatch.prototype.getArticles = function (callback) {
+  utils.modem(this.url, function (err, response) {
     if (err)
       callback(err)
     const html = response.data;
@@ -38,6 +39,5 @@ Marketwatch.prototype.getArticles = function (ticker, callback) {
 
   })
 }
-
 
 module.exports = Marketwatch;
