@@ -1,12 +1,16 @@
+var utils = require('../lib/utils');
+
 var Finviz = function () { };
 
 Finviz.prototype.getArticles = function (ticker, callback) {
   const url = 'https://finviz.com/quote.ashx?t=' + ticker;
-  const userAgent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.192 Safari/537.36";
 
-  axios.get(url, { headers: { 'User-Agent': userAgent } }).then(response => {
+  utils.modem(url, function (err, response) {
+    if (err)
+      callback(err)
+
     const html = response.data;
-    const $ = cheerio.load(html);
+    const $ = utils.processor.load(html);
     const analists = $('#news-table > tbody > tr');
     const articlesScraped = [];
 
@@ -27,18 +31,18 @@ Finviz.prototype.getArticles = function (ticker, callback) {
 
     callback(undefined, articlesScraped)
 
-  }).catch(function (e) {
-    callback(e);
-  });
+  })
 }
 
 Finviz.prototype.getAnalists = function (ticker, callback) {
   const url = 'https://finviz.com/quote.ashx?t=' + ticker;
-  const userAgent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.192 Safari/537.36";
 
-  axios.get(url, { headers: { 'User-Agent': userAgent } }).then(response => {
+  utils.modem(url, function (err, response) {
+    if (err)
+      callback(err)
+
     const html = response.data;
-    const $ = cheerio.load(html);
+    const $ = utils.processor.load(html);
     const analists = $('.fullview-ratings-outer > tbody > tr > td > table > tbody > tr');
     const analistsScraped = [];
 
@@ -62,18 +66,18 @@ Finviz.prototype.getAnalists = function (ticker, callback) {
 
     callback(undefined, analistsScraped)
 
-  }).catch(function (e) {
-    callback(e);
-  });
+  })
 }
 
 Finviz.prototype.getHomePageHeadLines = function (ticker, callback) {
   const url = 'https://finviz.com/';
-  const userAgent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.192 Safari/537.36";
 
-  axios.get(url, { headers: { 'User-Agent': userAgent } }).then(response => {
+  utils.modem(url, function (err, response) {
+    if (err)
+      callback(err)
+
     const html = response.data;
-    const $ = cheerio.load(html);
+    const $ = utils.processor.load(html);
     const articles = $('tr > td > table.t-home-table > tbody > tr');
     const articlesScraped = [];
 
@@ -102,9 +106,7 @@ Finviz.prototype.getHomePageHeadLines = function (ticker, callback) {
 
     callback(undefined, articlesScraped)
 
-  }).catch(function (e) {
-    callback(e);
-  });
+  })
 }
 
 
