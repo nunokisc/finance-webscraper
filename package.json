@@ -1,0 +1,29 @@
+{
+  "name": "finance-webscraper",
+  "version": "0.1.0",
+  "description": "Finance webscraper",
+  "main": "finance-webscraper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nunokisc/finance-webscraper.git"
+  },
+  "keywords": [
+    "stocks",
+    "finance",
+    "scraper",
+    "webscraper"
+  ],
+  "author": "Nuno Cardoso <nunokisc@github>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nunokisc/finance-webscraper/issues"
+  },
+  "homepage": "https://github.com/nunokisc/finance-webscraper#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.5"
+  }
+}
