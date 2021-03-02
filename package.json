@@ -1,6 +1,6 @@
 {
   "name": "finance-webscraper",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Finance webscraper",
   "main": "finance-webscraper.js",
   "scripts": {
