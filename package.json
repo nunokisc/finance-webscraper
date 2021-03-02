@@ -1,6 +1,6 @@
 {
   "name": "finance-webscraper",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Finance webscraper",
   "main": "finance-webscraper.js",
   "scripts": {
@@ -17,7 +17,7 @@
     "webscraper"
   ],
   "author": "Nuno Cardoso <nunokisc@github>",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/nunokisc/finance-webscraper/issues"
   },
