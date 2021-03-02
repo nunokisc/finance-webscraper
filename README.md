@@ -2,7 +2,7 @@
 
 Node.js API to webscrape stock info from finance sources. Work in progress...
 
-[![NPM](https://nodei.co/npm/finance-webscraper?mini=true)](https://npmjs.org/package/finance-webscraper)
+[![NPM](https://nodei.co/npm/finance-webscraper.png?mini=true)](https://npmjs.org/package/finance-webscraper)
 
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/nunokisc/finance-webscraper)
 
